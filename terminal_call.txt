@@ -1,0 +1,11 @@
+python synchronize_folders.py /home/{ENTER_USERNAME}/z_python_task/source /home/{ENTER_USERNAME}/z_python_task/replica 30 /home/{ENTER_USERNAME}/z_python_task/log.log
+
+
+The terminal call above is composed of the following elements:
+1. Program: python
+2. File name: synchronize_folders.py
+3. Source folder: /home/{ENTER_USERNAME}/z_python_task/source
+4. Replica folder: /home/{ENTER_USERNAME}/z_python_task/replica
+5. Interval(in seconds): 30
+6. Log file: /home/{ENTER_USERNAME}/z_python_task/log.log
+

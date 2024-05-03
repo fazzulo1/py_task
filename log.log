@@ -1,0 +1,15 @@
+
+[2024-05-03 14:49:34] : STARTING THE PROGRAM
+************************************************
+
+[2024-05-03 14:49:34] : Created initial replica directory: /home/haroldmiranda/z_python_task/replica
+************************************************
+
+[2024-05-03 14:49:49] : Created SOURCE FILE:/home/haroldmiranda/z_python_task/source/a.txt, LINKED/COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/a.txt
+************************************************
+
+[2024-05-03 14:50:04] : Created SOURCE DIR:/home/haroldmiranda/z_python_task/source/1_folder, COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/1_folder
+************************************************
+
+[2024-05-03 14:50:19] : Created SOURCE FILE:/home/haroldmiranda/z_python_task/source/1_folder/file.txt, LINKED/COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/1_folder/file.txt
+************************************************
