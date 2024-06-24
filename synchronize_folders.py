@@ -85,7 +85,8 @@ def synchronize(source, replica, log_file):
             synchronize(source_path, replica_path, log_file)
         elif os.path.isfile(source_path):
             if component not in replica_components:
-                os.symlink(source_path, replica_path)
+                # os.symlink(source_path, replica_path)
+                shutil.copy2(source_path, replica_path)
                 log(
                     log_file,
                     f"Created SOURCE FILE:{source_path}, LINKED/COPIED TO REPLICA:{replica_path}"
@@ -100,13 +101,13 @@ def synchronize(source, replica, log_file):
                 os.remove(path_to_delete)
                 log(
                     log_file,
-                    f"FILE NOT FOUND ON SOURCE: {component}, DELETED file from REPLICA: {path_to_delete}"
+                    f"FILE NOT FOUND IN SOURCE: {component}, DELETED file from REPLICA: {path_to_delete}"
                 )
         elif os.path.isdir(path_to_delete):
             shutil.rmtree(path_to_delete)
             log(
                 log_file,
-                f"DIRECTORY NOT FOUND ON SOURCE: {component}, DELETED directory from REPLICA: {path_to_delete}"
+                f"DIRECTORY NOT FOUND IN SOURCE: {component}, DELETED directory from REPLICA: {path_to_delete}"
             )
 
 

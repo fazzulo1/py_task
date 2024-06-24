@@ -40,3 +40,12 @@
 
 [2024-06-24 09:27:02] : FILE NOT FOUND ON SOURCE: a.txt, DELETED file from REPLICA: /home/haroldmiranda/z_python_task/replica/a.txt
 ************************************************
+
+[2024-06-24 09:30:08] : STARTING THE PROGRAM
+************************************************
+
+[2024-06-24 09:36:54] : STARTING THE PROGRAM
+************************************************
+
+[2024-06-24 09:37:54] : Created SOURCE FILE:/home/haroldmiranda/z_python_task/source/a.txt, LINKED/COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/a.txt
+************************************************
