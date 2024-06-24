@@ -19,3 +19,18 @@
 
 [2024-05-03 14:58:48] : Created SOURCE FILE:/home/haroldmiranda/z_python_task/source/b.txt, LINKED/COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/b.txt
 ************************************************
+
+[2024-06-24 08:30:59] : STARTING THE PROGRAM
+************************************************
+
+[2024-06-24 08:31:59] : FILE NOT FOUND ON SOURCE: b.txt, DELETED file from REPLICA: /home/haroldmiranda/z_python_task/replica/b.txt
+************************************************
+
+[2024-06-24 08:32:29] : Created SOURCE FILE:/home/haroldmiranda/z_python_task/source/b.txt, LINKED/COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/b.txt
+************************************************
+
+[2024-06-24 08:32:59] : Created SOURCE DIR:/home/haroldmiranda/z_python_task/source/2_folder, COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/2_folder
+************************************************
+
+[2024-06-24 08:33:29] : Created SOURCE DIR:/home/haroldmiranda/z_python_task/source/2_folder, COPIED TO REPLICA:/home/haroldmiranda/z_python_task/replica/2_folder
+************************************************

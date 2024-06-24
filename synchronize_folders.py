@@ -1,16 +1,19 @@
 """
 -PYTHON TASK
-Please implement a program that synchronizes two folders: source and replica. The program shoud maintain a full, identical copy of source folder at replica folder.
+Please implement a program that synchronizes two folders: source and replica.
+The program shoud maintain a full, identical copy of source folder at replica folder.
 
-- Synchronization must be one-way: after the synchronization, content of the replica folder should be modified to exactly match content of the source folder;
+- Synchronization must be one-way: after the synchronization,
+content of the replica folder should be modified to exactly match content of the source folder;
 - Synchronization should be performed periodically;
 - File creation/copying/removal operations should be logged to a file and to the console output;
 - Folder paths, synchronization interval and log file path should be provided using the command line arguments;
 - It is undesirable to use third-party libraries that implement folder synchronization;
-- It is allowed and recommended to use external libraries implementing other well-known algorithms. For example there is no point in implementing yet another function that calculates MD5 if you needed for the task -- it is perfectly acceptable to use a third party (or built-in) library.
+- It is allowed and recommended to use external libraries implementing other well-known algorithms.
+For example there is no point in implementing yet another function that calculates MD5 if you needed for the task
+ -- it is perfectly acceptable to use a third party (or built-in) library.
 - The solution should be presented in the form of a link to the public Github repository
 """
-
 
 import argparse
 import datetime
@@ -37,8 +40,9 @@ def synchronize_folders(source, replica, interval, log_file):
 
     # Interval synchronization
     while True:
-        synchronize(source,replica, log_file)
+        synchronize(source, replica, log_file)
         time.sleep(interval)
+
 
 def synchronize(source, replica, log_file):
     """
@@ -48,7 +52,10 @@ def synchronize(source, replica, log_file):
     source_components = set(os.listdir(source))
     if not os.path.exists(replica):
         os.makedirs(replica)
-        log(log_file, f"While program was on, replica was deleted and created again: {replica}")
+        log(
+            log_file,
+            f"While program was on, replica was deleted and created again: {replica}"
+        )
     replica_components = set(os.listdir(replica))
 
     # Determine components to copy to replica or to remove from replica
@@ -71,12 +78,18 @@ def synchronize(source, replica, log_file):
             # Check subfolder exists in replica
             if not os.path.exists(replica_path):
                 os.makedirs(replica_path)
-                log(log_file, f"Created SOURCE DIR:{source_path}, COPIED TO REPLICA:{replica_path}")
+                log(
+                    log_file,
+                    f"Created SOURCE DIR:{source_path}, COPIED TO REPLICA:{replica_path}"
+                )
             synchronize(source_path, replica_path, log_file)
         elif os.path.isfile(source_path):
             if component not in replica_components:
                 os.symlink(source_path, replica_path)
-                log(log_file, f"Created SOURCE FILE:{source_path}, LINKED/COPIED TO REPLICA:{replica_path}")
+                log(
+                    log_file,
+                    f"Created SOURCE FILE:{source_path}, LINKED/COPIED TO REPLICA:{replica_path}"
+                )
 
     # Delete folders and files inexistent in Source
     for component in components_to_delete:
@@ -85,10 +98,17 @@ def synchronize(source, replica, log_file):
         if os.path.isfile(path_to_delete) or os.path.islink(path_to_delete):
             if component not in source_components:
                 os.remove(path_to_delete)
-                log(log_file, f"FILE NOT FOUND ON SOURCE: {component}, DELETED file from REPLICA: {path_to_delete}")
+                log(
+                    log_file,
+                    f"FILE NOT FOUND ON SOURCE: {component}, DELETED file from REPLICA: {path_to_delete}"
+                )
         elif os.path.isdir(path_to_delete):
             shutil.rmtree(path_to_delete)
-            log(log_file, f"DIRECTORY NOT FOUND ON SOURCE: {component}, DELETED directory from REPLICA: {path_to_delete}")
+            log(
+                log_file,
+                f"DIRECTORY NOT FOUND ON SOURCE: {component}, DELETED directory from REPLICA: {path_to_delete}"
+            )
+
 
 def log(log_file, message):
     """Logs the synchronization process"""
@@ -105,8 +125,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Folder Synchronization")
     parser.add_argument("source", help="Source folder's path")
     parser.add_argument("replica", help="Replica folder's path")
-    parser.add_argument("interval", type=int, help="Synchronization interval time in seconds")
+    parser.add_argument("interval",
+                        type=int,
+                        help="Synchronization interval time in seconds")
     parser.add_argument("log_file", help="Log file's path")
     args = parser.parse_args()
 
-    synchronize_folders(args.source, args.replica, args.interval, args.log_file)
+    synchronize_folders(args.source, args.replica, args.interval,
+                        args.log_file)
