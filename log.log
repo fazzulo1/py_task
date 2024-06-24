@@ -37,3 +37,6 @@
 
 [2024-06-24 08:37:29] : DIRECTORY NOT FOUND ON SOURCE: 2_folder, DELETED directory from REPLICA: /home/haroldmiranda/z_python_task/replica/2_folder
 ************************************************
+
+[2024-06-24 09:27:02] : FILE NOT FOUND ON SOURCE: a.txt, DELETED file from REPLICA: /home/haroldmiranda/z_python_task/replica/a.txt
+************************************************
